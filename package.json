@@ -2,7 +2,7 @@
   "name": "react-bootstrap-input",
   "version": "1.0.0",
   "description": "Made with create-react-library",
-  "author": "",
+  "author": "Raúl Alexander Mendoza",
   "license": "MIT",
   "repository": "/react-bootstrap-input",
   "main": "dist/index.js",

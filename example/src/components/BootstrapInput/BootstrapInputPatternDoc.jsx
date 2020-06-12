@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import SyntaxHighlighter from 'react-syntax-highlighter';
-import { BootstrapInput } from 'react-bootstrap-input';
+import { BootstrapTextEdit } from 'react-bootstrap-input';
 
 export function BootstrapInputPatternDoc() {
   const [value, setState] = useState('');
@@ -15,12 +15,12 @@ export function BootstrapInputPatternDoc() {
       </p>
       <div className="card">
         <div className="card-body">
-          <BootstrapInput name="inputLabel" label="Custom validator" value={value} onChange={event => setState(event.currentTarget.value)} placeholder="Add only capital letters" pattern="^[A-Z]+$" />
+          <BootstrapTextEdit name="inputLabel" label="Custom validator" value={value} onChange={event => setState(event.currentTarget.value)} placeholder="Add only capital letters" pattern="^[A-Z]+$" />
         </div>
       </div>
       <SyntaxHighlighter language="jsx">
         {
-          '<BootstrapInput name="inputLabel" label="Custom validator" placeholder="Add only capital letters" pattern="^[A-Z]+$" />'
+          '<BootstrapTextEdit name="inputLabel" label="Custom validator" placeholder="Add only capital letters" pattern="^[A-Z]+$" />'
         }
       </SyntaxHighlighter>
     </div>

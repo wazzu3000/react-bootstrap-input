@@ -1,2 +1,2 @@
 export { BootstrapForm } from './BootstrapForm';
-export { BootstrapInput } from './BootstrapInput';
+export { BootstrapTextEdit } from './BootstrapTextEdit';

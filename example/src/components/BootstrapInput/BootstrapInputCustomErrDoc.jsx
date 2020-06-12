@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import SyntaxHighlighter from 'react-syntax-highlighter';
-import { BootstrapInput } from 'react-bootstrap-input';
+import { BootstrapTextEdit } from 'react-bootstrap-input';
 
 export function BootstrapInputCustomErrDoc() {
   const [value, setState] = useState('');
@@ -13,12 +13,12 @@ export function BootstrapInputCustomErrDoc() {
       </p>
       <div className="card">
         <div className="card-body">
-          <BootstrapInput name="inputLabel" label="Custom error" value={value} onChange={event => setState(event.currentTarget.value)} pattern="^[A-Z]+$" requiredError="You must be fill this field" patternError="You must type only capital letters" required />
+          <BootstrapTextEdit name="inputLabel" label="Custom error" value={value} onChange={event => setState(event.currentTarget.value)} pattern="^[A-Z]+$" requiredError="You must be fill this field" patternError="You must type only capital letters" required />
         </div>
       </div>
       <SyntaxHighlighter language="jsx">
         {
-          '<BootstrapInput name="inputLabel" label="Custom error" pattern="^[A-Z]+$" requiredError="You must be fill this field" patternError="You must type only capital letters" required />'
+          '<BootstrapTextEdit name="inputLabel" label="Custom error" pattern="^[A-Z]+$" requiredError="You must be fill this field" patternError="You must type only capital letters" required />'
         }
       </SyntaxHighlighter>
     </div>

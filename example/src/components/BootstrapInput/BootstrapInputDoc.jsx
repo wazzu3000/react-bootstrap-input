@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import SyntaxHighlighter from 'react-syntax-highlighter';
-import { BootstrapInput } from 'react-bootstrap-input';
+import { BootstrapTextEdit } from 'react-bootstrap-input';
 
 export function BootstrapInputDoc() {
   const [value, setState] = useState('');
@@ -17,12 +17,12 @@ export function BootstrapInputDoc() {
       </p>
       <div className="card">
         <div className="card-body">
-          <BootstrapInput name="inputBasic" value={value} onChange={event => setState(event.currentTarget.value)} />
+          <BootstrapTextEdit name="inputBasic" value={value} onChange={event => setState(event.currentTarget.value)} />
         </div>
       </div>
       <SyntaxHighlighter language="jsx">
         {
-          '<BootstrapInput name="inputBasic" />'
+          '<BootstrapTextEdit name="inputBasic" />'
         }
       </SyntaxHighlighter>
     </div>

@@ -21,7 +21,7 @@ interface Props {
   required?: boolean;
   size?: number;
   step?: number;
-  value: string;
+  value?: string;
   type?: InputTypes;
   label?: string;
   invalid?: boolean;
@@ -30,7 +30,7 @@ interface Props {
 
   // Input events
   onBlur?: (event: FocusEvent<HTMLInputElement>) => void;
-  onChange: (event: ChangeEvent<HTMLInputElement>) => void;
+  onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
   onContextMenu?: (event: MouseEvent<HTMLInputElement>) => void;
   onFocus?: (event: FocusEvent<HTMLInputElement>) => void;
   onInput?: (event: FormEvent<HTMLInputElement>) => void;
@@ -42,7 +42,7 @@ interface State {
   invalid: boolean;
 }
 
-export class BootstrapInput extends Component<Props, State> {
+export class BootstrapTextEdit extends Component<Props, State> {
   static requiredError: string = 'Input required';
   static patternError: string = 'Incorrect pattern';
   formName: string;
@@ -62,7 +62,7 @@ export class BootstrapInput extends Component<Props, State> {
     super(props);
 
     this.state = {
-      value: props.value,
+      value: props.value || '',
       error: '',
       invalid: false
     }
@@ -72,8 +72,8 @@ export class BootstrapInput extends Component<Props, State> {
     }
 
     this.ref = createRef<HTMLInputElement>();
-    this.requiredError = props.requiredError || BootstrapInput.requiredError;
-    this.patternError = props.patternError || BootstrapInput.patternError;
+    this.requiredError = props.requiredError || BootstrapTextEdit.requiredError;
+    this.patternError = props.patternError || BootstrapTextEdit.patternError;
     this.touched = !!props.invalid;
     this.hasLostFocus = !!props.invalid;
     this.onChange = this.onChange.bind(this);
@@ -106,7 +106,27 @@ export class BootstrapInput extends Component<Props, State> {
         />
         
         {
-          !!this.state.error && <small className="form-text text-danger">{this.state.error}</small>
+          (!!this.state.error || this.props.maxLength) && (
+            <div className="row">
+              {
+                <div className="col">
+                  {
+                    !!this.state.error && <small className="form-text text-danger">{this.state.error}</small>
+                  }
+                </div>
+              }
+              
+              {
+                this.props.maxLength && (
+                  <div className="col-auto">
+                    <small className="form-text text-muted">
+                      {this.state.value.length} / {this.props.maxLength}
+                    </small>
+                  </div>
+                )
+              }
+            </div>
+          )
         }
       </div>
     )
@@ -143,7 +163,7 @@ export class BootstrapInput extends Component<Props, State> {
       this.regex = new RegExp(this.props.pattern);
     }
 
-    if (this.props.value != this.state.value) {
+    if (this.props.value !== undefined && this.props.value != this.state.value) {
       this.setState({
         value: this.props.value
       });
@@ -159,7 +179,11 @@ export class BootstrapInput extends Component<Props, State> {
   onChange(event: React.ChangeEvent<HTMLInputElement>) {
     this.touched = true;
     this.validateInput();
-    this.props.onChange && this.props.onChange(event);
+    if (this.props.onChange) {
+      this.props.onChange(event);
+    } else {
+      this.setState({ value: event.currentTarget.value });
+    }
   }
 
   onBlur(event: React.FocusEvent<HTMLInputElement>) {

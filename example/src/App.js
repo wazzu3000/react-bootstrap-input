@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { BootstrapForm, BootstrapInput } from 'react-bootstrap-input';
+import { BootstrapTextEdit } from 'react-bootstrap-input';
 import { BootstrapInputDoc } from './components/BootstrapInput/BootstrapInputDoc';
 import { BootstrapInputLabelDoc } from './components/BootstrapInput/BootstrapInputLabelDoc';
 import { BootstrapInputRequiredDoc } from './components/BootstrapInput/BootstrapInputRequiredDoc';
@@ -34,7 +34,13 @@ const App = () => {
       
 
       <p>The input can start as error if you want</p>
-      <BootstrapInput name="inputDefaultError" label="Starts with error" value={value.inputDefaultError} onChange={handleChanges} invalid={true} required />
+      <BootstrapTextEdit name="inputDefaultError" label="Starts with error" value={value.inputDefaultError} onChange={handleChanges} invalid={true} required />
+
+
+
+
+
+      <BootstrapTextEdit name="inputDefaultError" label="Starts with error" maxLength={10} />
 
 
       <BootstrapFormDoc />
