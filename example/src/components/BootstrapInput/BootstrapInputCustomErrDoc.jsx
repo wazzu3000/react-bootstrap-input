@@ -9,7 +9,6 @@ export function BootstrapInputCustomErrDoc() {
     <div>
       <p>
         You can customize the error messages with the attributes <code>patternError</code> and <code>requiredError</code>
-
       </p>
       <div className="card">
         <div className="card-body">

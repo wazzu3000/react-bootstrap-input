@@ -1,9 +1,9 @@
 import { Dictionary } from './Types';
-import { BootstrapTextEdit } from './BootstrapTextEdit';
+import { Input } from './Input';
 
-const records: Dictionary<Dictionary<BootstrapTextEdit>> = {};
+const records: Dictionary<Dictionary<Input>> = {};
 
-export function registerInput(input: BootstrapTextEdit, formName: string) {
+export function registerInput(input: Input, formName: string) {
   if (formName && !records[formName]) {
     records[formName] = {}
   }
@@ -19,7 +19,7 @@ export function removeInput(formName: string, inputName: string) {
   delete records[formName][inputName];
 }
 
-export function getInputs(formName: string): Dictionary<BootstrapTextEdit> {
+export function getInputs(formName: string): Dictionary<Input> {
   return records[formName];
 }
 

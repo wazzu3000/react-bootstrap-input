@@ -7,8 +7,8 @@ interface Props {
   acceptCharset?: string;
   action?: string;
   autoComplete?: Autocomplete;
-  className: string;
-  children: any;
+  className?: string;
+  children?: any;
   encType?: EncTypes;
   id?: string;
   method?: Methods;
@@ -43,9 +43,9 @@ export function BootstrapForm(props: Props) {
 
     if (hasErrors) {
       event.preventDefault();
+    } else {
+      props.onSubmit && props.onSubmit(event);
     }
-    
-    props.onSubmit && props.onSubmit(event);
   }
 
   useEffect(() => {

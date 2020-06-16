@@ -8,8 +8,8 @@ export function BootstrapInputDoc() {
   return (
     <div>
       <p>
-        The component <code>{'<SyntaxHighlighter />'}</code> renders a HTML input inside of a div with
-        the <code>form-control</code> and <code>form-group</code> respective class.
+        The component <code>{'<BootstrapTextEdit />'}</code> renders a HTML <code>input</code> inside of
+        a <code>div</code> with the <code>form-control</code> and <code>form-group</code> respective class.
       </p>
       <p>
         This component is limited to use just type inputs, currently is not posible renders checkbox,

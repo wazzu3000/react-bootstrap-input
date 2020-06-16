@@ -1,11 +1,13 @@
-import React, { Component, FocusEvent, ChangeEvent, MouseEvent, FormEvent, RefObject, createRef } from 'react';
+import React, { FocusEvent, ChangeEvent, MouseEvent, FormEvent, createRef } from 'react';
 import { Autocomplete, InputTypes } from './Types';
-import { registerInput, removeInput } from './Validators';
+import { Input } from './Input';
 
 interface Props {
   // Input attributes
   autoComplete?: Autocomplete;
   autoFocus?: boolean;
+  className?: string;
+  children?: any;
   disabled?: boolean;
   form?: string;
   formNoValidate?: boolean;
@@ -42,11 +44,9 @@ interface State {
   invalid: boolean;
 }
 
-export class BootstrapTextEdit extends Component<Props, State> {
+export class BootstrapTextEdit extends Input<Props, State, HTMLInputElement> {
   static requiredError: string = 'Input required';
   static patternError: string = 'Incorrect pattern';
-  formName: string;
-  ref: RefObject<HTMLInputElement>;
   regex: RegExp;
   requiredError: string;
   patternError: string;
@@ -132,28 +132,6 @@ export class BootstrapTextEdit extends Component<Props, State> {
     )
   }
 
-  componentDidMount() {
-    if (!this.ref || !this.ref.current) {
-      return;
-    }
-
-    let dom: HTMLElement = this.ref.current;
-    if (this.props.invalid) {
-      this.setAsInvalid();
-    }
-
-    while (!(dom instanceof HTMLFormElement)) {
-      if (!dom.parentElement) {
-        return;
-      }
-
-      dom = dom.parentElement;
-    }
-
-    this.formName = dom.getAttribute('name') || '';
-    registerInput(this, this.formName);
-  }
-
   componentDidUpdate(prevProps: Props) {
     if (prevProps.invalid != this.props.invalid) {
       this.setAsInvalid();
@@ -168,28 +146,6 @@ export class BootstrapTextEdit extends Component<Props, State> {
         value: this.props.value
       });
     }
-  }
-
-  componentWillUnmount() {
-    if (this.formName) {
-      removeInput(this.formName, this.props.name);
-    }
-  }
-
-  onChange(event: React.ChangeEvent<HTMLInputElement>) {
-    this.touched = true;
-    this.validateInput();
-    if (this.props.onChange) {
-      this.props.onChange(event);
-    } else {
-      this.setState({ value: event.currentTarget.value });
-    }
-  }
-
-  onBlur(event: React.FocusEvent<HTMLInputElement>) {
-    this.hasLostFocus = true;
-    this.validateInput();
-    this.props.onBlur && this.props.onBlur(event);
   }
 
   validateInput(): boolean {
@@ -219,11 +175,5 @@ export class BootstrapTextEdit extends Component<Props, State> {
     }
 
     return true;
-  }
-
-  setAsInvalid() {
-    this.touched = true;
-    this.hasLostFocus = true;
-    this.validateInput();
   }
 }
