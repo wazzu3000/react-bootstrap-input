@@ -86,6 +86,14 @@ export class BootstrapDropDown extends Input<Props, State, HTMLSelectElement>  {
     )
   }
 
+  componentDidUpdate() {
+    if (this.props.value !== undefined && this.props.value != this.state.value) {
+      this.setState({
+        value: this.props.value
+      });
+    }
+  }
+
   validateInput(): boolean {
     const invalid = this.state.invalid;
     const input = this.ref.current;
