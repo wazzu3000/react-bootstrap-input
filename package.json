@@ -1,8 +1,8 @@
 {
   "name": "react-bootstrap-input-validator",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Made with create-react-library",
-  "author": "Raúl Alexander Mendoza",
+  "author": "Raúl Alexander Mendoza Muñoz",
   "license": "MIT",
   "repository": "/react-bootstrap-input",
   "main": "dist/index.js",
