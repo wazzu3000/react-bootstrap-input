@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import { BootstrapTextEdit } from 'react-bootstrap-input';
-import { BootstrapInputDoc } from './components/BootstrapInput/BootstrapInputDoc';
-import { BootstrapInputLabelDoc } from './components/BootstrapInput/BootstrapInputLabelDoc';
-import { BootstrapInputRequiredDoc } from './components/BootstrapInput/BootstrapInputRequiredDoc';
-import { BootstrapInputPatternDoc } from './components/BootstrapInput/BootstrapInputPatternDoc';
-import { BootstrapInputCustomErrDoc } from './components/BootstrapInput/BootstrapInputCustomErrDoc';
+import { BootstrapTextEditDoc } from './components/BootstrapTextEdit/BootstrapTextEditDoc';
+import { BootstrapTextEditLabelDoc } from './components/BootstrapTextEdit/BootstrapTextEditLabelDoc';
+import { BootstrapTextEditRequiredDoc } from './components/BootstrapTextEdit/BootstrapTextEditRequiredDoc';
+import { BootstrapTextEditPatternDoc } from './components/BootstrapTextEdit/BootstrapTextEditPatternDoc';
+import { BootstrapTextEditCustomErrDoc } from './components/BootstrapTextEdit/BootstrapTextEditCustomErrDoc';
 import { BootstrapDropDownDoc } from './components/BootstrapDropDown/BootstrapDropDownDoc';
 import { BootstrapDropDownLabelDoc } from './components/BootstrapDropDown/BootstrapDropDownLabelDoc';
 import { BootstrapDropDownRequiredDoc } from './components/BootstrapDropDown/BootstrapDropDownRequiredDoc';
+import { BootstrapInputDoc } from './components/BootstrapInput/BootstrapInputDoc';
 import { BootstrapFormDoc } from './components/BootstrapForm/BootstrapFormDoc';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -30,11 +31,11 @@ const App = () => {
     <div className="container">
       <h1>BootstrapInput</h1>
       <h2>BootstrapTextEdit</h2>
-      <BootstrapInputDoc />
-      <BootstrapInputLabelDoc />
-      <BootstrapInputRequiredDoc />
-      <BootstrapInputPatternDoc />
-      <BootstrapInputCustomErrDoc />
+      <BootstrapTextEditDoc />
+      <BootstrapTextEditLabelDoc />
+      <BootstrapTextEditRequiredDoc />
+      <BootstrapTextEditPatternDoc />
+      <BootstrapTextEditCustomErrDoc />
       
 
       <p>The input can start as error if you want</p>
@@ -50,6 +51,9 @@ const App = () => {
       <BootstrapDropDownDoc />
       <BootstrapDropDownLabelDoc />
       <BootstrapDropDownRequiredDoc />
+
+      <h2>BootstrapInput</h2>
+      <BootstrapInputDoc />
 
       <BootstrapFormDoc />
     </div>

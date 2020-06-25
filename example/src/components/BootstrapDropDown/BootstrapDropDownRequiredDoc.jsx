@@ -11,7 +11,7 @@ export function BootstrapDropDownRequiredDoc() {
       <div className="card">
         <div className="card-body">
           <BootstrapDropDown name="selectBasic" label="Select an option" required>
-            <option value="">Option 0</option>
+            <option value="">Select an option</option>
             <option>Option 1</option>
             <option>Option 2</option>
             <option>Option 3</option>

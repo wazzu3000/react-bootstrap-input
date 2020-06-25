@@ -1,6 +1,6 @@
 import React, { FocusEvent, ChangeEvent, MouseEvent, FormEvent, createRef } from 'react';
 import { Autocomplete, InputTypes } from './Types';
-import { Input } from './Input';
+import { BaseInput } from './BaseInput';
 
 interface Props {
   // Input attributes
@@ -44,11 +44,10 @@ interface State {
   invalid: boolean;
 }
 
-export class BootstrapTextEdit extends Input<Props, State, HTMLInputElement> {
+export class BootstrapTextEdit extends BaseInput<Props, State, HTMLInputElement> {
   static requiredError: string = 'Input required';
   static patternError: string = 'Incorrect pattern';
   regex: RegExp;
-  requiredError: string;
   patternError: string;
   hasLostFocus: boolean;
   touched: boolean;

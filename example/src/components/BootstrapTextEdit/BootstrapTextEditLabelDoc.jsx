@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { BootstrapTextEdit } from 'react-bootstrap-input';
 
-export function BootstrapInputLabelDoc() {
+export function BootstrapTextEditLabelDoc() {
   const [value, setState] = useState('');
 
   return (

@@ -47,7 +47,7 @@ export class BootstrapDropDown extends Input<Props, State, HTMLSelectElement>  {
     }
 
     this.ref = createRef<HTMLSelectElement>();
-    this.requiredError = BootstrapDropDown.requiredError;
+    this.requiredError = props.requiredError || BootstrapDropDown.requiredError;
     this.onChange = this.onChange.bind(this);
     this.onBlur = this.onBlur.bind(this);
     this.validateInput = this.validateInput.bind(this);
@@ -84,36 +84,5 @@ export class BootstrapDropDown extends Input<Props, State, HTMLSelectElement>  {
         }
       </div>
     )
-  }
-
-  componentDidUpdate() {
-    if (this.props.value !== undefined && this.props.value != this.state.value) {
-      this.setState({
-        value: this.props.value
-      });
-    }
-  }
-
-  validateInput(): boolean {
-    const invalid = this.state.invalid;
-    const input = this.ref.current;
-    if (!input || !this.touched || !this.hasLostFocus) {
-      return true;
-    }
-
-    if (input.required && !input.value) {
-      !invalid && this.setState({
-        invalid: true,
-        error: this.requiredError
-      });
-      return false;
-    } else if (invalid) {
-      this.setState({
-        invalid: false,
-        error: ''
-      });
-    }
-
-    return true;
   }
 }

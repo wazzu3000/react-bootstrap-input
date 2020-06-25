@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { BootstrapTextEdit } from 'react-bootstrap-input';
 
-export function BootstrapInputPatternDoc() {
+export function BootstrapTextEditPatternDoc() {
   const [value, setState] = useState('');
   const link = 'https://www.w3schools.com/tags/att_input_pattern.asp';
 
