@@ -50,7 +50,8 @@ export class BootstrapInput extends Input<Props, State> {
         {
           !!this.props.label && (
             <label className={this.state.invalid ? 'text-danger' : ''}>
-              {this.props.label}: {
+              {this.props.label}:
+              {
                 this.props.required && <span className="ml-1 text-danger">*</span>
               }
             </label>
@@ -59,6 +60,7 @@ export class BootstrapInput extends Input<Props, State> {
         {
           cloneElement(this.props.children, {
             ref: this.ref,
+            className: (this.ref.current?.className || '') + (this.state.invalid ? ' is-invalid' : ''),
             value: this.state.value,
             onChange: this.onChange,
             onBlur: this.onBlur

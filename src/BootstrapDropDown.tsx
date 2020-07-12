@@ -64,7 +64,8 @@ export class BootstrapDropDown extends Input<Props, State, HTMLSelectElement>  {
         {
           !!this.props.label && (
             <label className={this.state.invalid ? 'text-danger' : ''}>
-              {this.props.label}: {
+              {this.props.label}:
+              {
                 this.props.required && <span className="ml-1 text-danger">*</span>
               }
             </label>
